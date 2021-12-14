@@ -35,6 +35,7 @@ namespace Calculadora
             Console.WriteLine("        4 - Divisão");
             Console.WriteLine("        5 - Celsius para Fahrenheit");
             Console.WriteLine("        6 - Meu endereço IP");
+            Console.WriteLine("        7 - Conversor de Moeda ");
             Console.WriteLine("        99 - Sair");
             Console.WriteLine("============================================================================");
 
@@ -59,6 +60,8 @@ namespace Calculadora
                     break;
                 case 6:
                     MeuIp();
+                    break;
+                case 7:ConversorMoeda();
                     break;
                 case 99://Digitar 99 para sair da aplicação.
                     Console.WriteLine("Bye!");
@@ -157,7 +160,48 @@ namespace Calculadora
             Menu();
 
         }
+        static void ConversorMoeda() 
+        {
+            Console.Clear();
+            Console.WriteLine("Informe o valor em R$: ");
+            double valor = double.Parse(Console.ReadLine());
+
+            Console.WriteLine("Selecione a Moeda que deseja converter: ");
+            Console.WriteLine("1 - Dolar");
+            Console.WriteLine("2 - Libras");
+            Console.WriteLine("3 - Euro");
+            Console.WriteLine("4 - Menu principal");
+            Console.WriteLine("");
+
+            string tipo = Console.ReadLine();
            
+            
+            switch (tipo) 
+            {
+                case "1": valor = valor/5.69;
+                    Console.WriteLine("Valor em Dolár: {0:0.0}",valor);
+                    Console.ReadKey();
+                    ConversorMoeda();
+                    break;
+                case "2":
+                    valor = valor / 7.52;
+                    Console.WriteLine("Valor em Libra: {0:0.0}",valor);
+                    Console.ReadKey();
+                    ConversorMoeda();
+                    break;
+                case "3":
+                    valor = valor / 6.40;
+                    Console.WriteLine("Valor em Euro: {0:0.0}", valor);
+                    Console.ReadKey();
+                    ConversorMoeda();
+                    break;
+                case "4": Menu();
+                    break;
+                default : Menu();
+                    break;
+            }
+
+        }
 
     }
 }
